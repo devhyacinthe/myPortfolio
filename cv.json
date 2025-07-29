@@ -1,0 +1,329 @@
+{
+  "basics": {
+    "name": "d'ALMEIDA Hyacinthe",
+    "label": "Ingénieur logiciel, spécialisé dans le développement d'applications mobiles",
+    "image": "/me_avatar.jpg",
+    "email": "devhyacinthepro@gmail.com",
+    "phone": "+228 70738367",
+    "url": "https://johndoe.dev",
+    "summary": "Ingénieur logiciel passionné par le développement d'applications web, je suis actuellement à la recherche d'opportunités pour développer mes compétences dans un environnement professionnel.",
+    "theme": "blue",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Lomé",
+      "countryCode": "TG",
+      "region": "Togo"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "Hyacinthe d'ALMEIDA",
+        "url": "https://www.linkedin.com/in/hyacinthe-d-almeida-8646b7262/"
+      },
+      {
+        "network": "GitHub",
+        "username": "devhyacinthe",
+        "url": "https://github.com/devhyacinthe"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Cabinet INNOVE",
+      "position": "Développeur mobile junior",
+      "location_type": "A distance",
+      "location": "Lomé, Togo",
+      "url": "",
+      "startDate": "2023-04-01",
+      "endDate": "2023-10-01",
+      "summary": "J'ai eu à travailler sur une application mobile de gestion de biens immobiliers.",
+      "highlights": [
+        "Amélioration des performances de l'application en optimisant le code"
+      ],
+      "responsibilities": [
+        "Collaboration avec des développeurs seniors pour concevoir et mettre en œuvre des applications mobiles en utilisant Flutter."
+      ],
+      "skills": [
+        "Flutter",
+        "Dart",
+        "Firebase"
+      ]
+    },
+    {
+      "name": "DacTechnologies",
+      "position": "Développeur mobile et backend junior",
+      "location_type": "Sur site",
+      "location": "Lomé, Togo",
+      "url": "https://www.dactechnologies.com/fr/",
+      "startDate": "2024-04-02",
+      "endDate": "2024-10-03",
+      "summary": "J'ai eu à travailler sur le développement d'application mobile, ainsi que du backend principalement en NestJs.",
+      "highlights": [
+        "A contribué à plusieurs projets majeurs au sein de l'entreprise."
+      ],
+      "responsibilities": [
+        "Développement de plusieurs applications mobiles",
+        "Développement et maintenance de services backend en utilisant NestJS et Django.",
+        "Participation aux réunions quotidiennes et aux réunions de planification de sprint bi-hebdomadaires pour garantir l'alignement sur les objectifs du projet."
+      ],
+      "achievements": [
+        "Création de plusieurs applications mobile au sein de l'entreprise."
+      ],
+      "skills": [
+        "Flutter",
+        "Django Rest Framework",
+        "Dart",
+        "NestJs",
+        "Gitlab"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Ecole Polytechnique de Lomé",
+      "url": "https://www.facebook.com/p/Ecole-Polytechnique-de-Lom%C3%A9-UL-100087985756069/?locale=fr_FR",
+      "area": "Ecole d'ingénieur",
+      "studyType": "Licence Professionnelle",
+      "startDate": "2021-02-10",
+      "endDate": "2025-04-30",
+      "score": "3.9"
+    },
+    {
+      "institution": "Notre dame de la trinité",
+      "url": "",
+      "area": "Collège-Lycée",
+      "studyType": "BAC Série C4",
+      "startDate": "2013-09-18",
+      "endDate": "2020-10-10",
+      "score": "3.8"
+    }
+  ],
+  "certificates": [
+    
+  ],
+  "skills": [
+    {
+      "name": "Flutter",
+      "level": "Expert",
+      "keywords": [
+        "Mobile Development",
+        "Cross-Platform",
+        "Dart"
+      ]
+    },
+    {
+      "name": "Gitlab",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code"
+      ]
+    },
+    {
+      "name": "HTML",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Web Development",
+        "Frontend"
+      ]
+    },
+    {
+      "name": "CSS",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "Fullstack"
+      ]
+    },
+    {
+      "name": "Tailwind",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "CSS Framework",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "TypeScript",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "JavaScript Superset"
+      ]
+    },
+    {
+      "name": "Node",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Web Development",
+        "Backend",
+        "JavaScript",
+        "Server"
+      ]
+    },
+    {
+      "name": "MySQL",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Databases",
+        "SQL",
+        "Data Storage",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Git",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code",
+        "Git"
+      ]
+    },
+    {
+      "name": "Nuxt.js",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "VueJs Framework",
+        "SSR",
+        "Static Generation"
+      ]
+    },
+    {
+      "name": "NestJS",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Backend"
+      ]
+    },
+     {
+      "name": "Django Rest Framework",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Backend",
+        "Python"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Francais",
+      "fluency": "Locuteur natif"
+    },
+    {
+      "language": "Anglais",
+      "fluency": "Intermédiaire"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Technology",
+      "keywords": [
+        "AI",
+        "Mobile Development",
+        "Data science"
+      ]
+    }
+  ],
+  "references": [
+   
+  ],
+  "projects": [
+    {
+      "name": "Portfolio",
+      "isActive": true,
+      "description": "Un site Web de portfolio personnel pour présenter mes projets et mes compétences.",
+      "highlights": [
+        "Construit avec Astro"
+      ],
+      "url": "https://johndoe.dev",
+      "github": "https://github.com"
+    },
+    {
+      "name": "Youtube Clone",
+      "isActive": true,
+      "description": "Une application web qui imite les fonctionnalités de YouTube, permettant aux utilisateurs de regarder des vidéos.",
+      "highlights": [
+        "Construit avec ReactJS"
+      ],
+      "url": "https://dhjyoutubeclone.netlify.app"
+    },
+    {
+      "name": "DacPharma",
+      "isActive": false,
+      "description":"Une application mobile pour la recherche et la commande de médicaments en ligne.",
+      "highlights": [
+        "Construit avec Flutter et NestJs"
+      ],
+      "url": "",
+      "github": ""
+    },
+    {
+      "name": "DacDelivery",
+      "isActive": false,
+      "description":"Une application mobile pour livrer des produits.",
+      "highlights": [
+        "Construit avec Flutter et Django Rest Framework"
+      ],
+      "url": "",
+      "github": ""
+    },
+    {
+      "name": "DacMarket",
+      "isActive": false,
+      "description":"Une application mobile pour vendre des produits en ligne.",
+      "highlights": [
+        "Construit avec Flutter et NestJs"
+      ],
+      "url": "",
+      "github": ""
+    },
+    {
+      "name": "NBA App",
+      "isActive": false,
+      "description": "Une application mobile pour voir les résultats des match NBA.",
+      "highlights": [
+          "Construit avec Flutter"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Cleaner Contact",
+      "isActive": false,
+      "description": "Une application mobile pour néttoyer rapidement les contacts que vous voulez supprimer dans votre téléphone.",
+      "highlights": [
+          "Construit avec Flutter"
+      ],
+      "url": ""
+    }
+  ]
+}
