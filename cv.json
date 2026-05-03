@@ -1,16 +1,16 @@
 {
   "basics": {
     "name": "d'ALMEIDA Hyacinthe",
-    "label": "Ingénieur logiciel, spécialisé dans le développement d'applications mobiles",
+    "label": "Data engineer",
     "image": "/myPortfolio/me_avatar.jpg",
     "email": "devhyacinthepro@gmail.com",
     "phone": "+228 70738367",
     "url": "https://devhyacinthe.github.io/myPortfolio/",
-    "summary": "Ingénieur logiciel passionné par le développement d'applications mobile, je suis actuellement à la recherche d'opportunités pour développer mes compétences dans un environnement professionnel.",
+    "summary": "data engineer et Ingénieur logiciel passionné par le développement d'applications mobile, je suis actuellement à la recherche d'opportunités pour développer mes compétences dans un environnement professionnel.",
     "theme": "blue",
     "location": {
       "address": "",
-      "postalCode": "",
+      "postalCode": "228",
       "city": "Lomé",
       "countryCode": "TG",
       "region": "Togo"
@@ -77,6 +77,29 @@
         "NestJs",
         "Gitlab"
       ]
+    },
+    {
+      "name": "AlloServices",
+      "position": "Responsable technique mobile",
+      "location_type": "A distance",
+      "location": "Lomé, Togo",
+      "url": "https://www.alloservices.app/",
+      "startDate": "2025-05-02",
+      "endDate": "",
+      "summary": "J'ai eu à travailler sur le développement d'application mobile",
+      "highlights": [
+        "A contribué à plusieurs projets majeurs au sein de l'entreprise."
+      ],
+      "responsibilities": [
+        "Développement de plusieurs applications mobiles"
+      ],
+      "achievements": [
+        "Création de plusieurs applications mobile au sein de l'entreprise."
+      ],
+      "skills": [
+        "Flutter",
+        "Gitlab"
+      ]
     }
   ],
   "education": [
@@ -87,6 +110,15 @@
       "studyType": "Licence Professionnelle",
       "startDate": "2021-02-10",
       "endDate": "2025-04-30",
+      "score": "3.9"
+    },
+    {
+      "institution": "UTBM",
+      "url": "https://www.utbm.fr/",
+      "area": "Ecole d'ingénieur",
+      "studyType": "Master Professionnelle IA & Big Data",
+      "startDate": "2025-10-28",
+      "endDate": "en cours",
       "score": "3.9"
     },
     {
@@ -208,17 +240,6 @@
       ]
     },
     {
-      "name": "Nuxt.js",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "VueJs Framework",
-        "SSR",
-        "Static Generation"
-      ]
-    },
-    {
       "name": "NestJS",
       "level": "Intermédiaire",
       "keywords": [
@@ -231,6 +252,15 @@
       "keywords": [
         "Backend",
         "Python"
+      ]
+    },
+    {
+      "name": "Python",
+      "level": "Intermédiaire",
+      "keywords": [
+        "Backend",
+        "Scripting",
+        "Data Science"
       ]
     }
   ],
@@ -324,6 +354,15 @@
           "Construit avec Flutter"
       ],
       "url": ""
+    },
+    {
+      "name": "AquaTogoManager",
+      "isActive": false,
+      "description": "Une application pour gerer une boutique de ventes et de prestations de services dans le domaine de l'aquaculture.",
+      "highlights": [
+          "Construit avec Django"
+      ],
+      "url": "https://aquatogo.alloservices.app/"
     }
   ]
 }
