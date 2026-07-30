@@ -69,6 +69,15 @@ const base = import.meta.env.BASE_URL;
     </script>
 
     <ViewTransitions />
+
+    <noscript>
+      <style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
   </head>
 
   <body class="min-h-screen bg-skin-fill text-skin-base antialiased">
@@ -80,6 +89,57 @@ const base = import.meta.env.BASE_URL;
     </main>
     <Footer />
     <KeyboardManager />
+
+    {/* Self-contained scroll-reveal — inline so it can't be broken by a failing bundle. */}
+    <script is:inline>
+      (function () {
+        function setup() {
+          var els = document.querySelectorAll(".reveal:not(.is-visible)");
+          if (!els.length) return;
+          var reduce =
+            !("IntersectionObserver" in window) ||
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (reduce) {
+            els.forEach(function (el) {
+              el.classList.add("is-visible");
+            });
+            return;
+          }
+          var obs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  e.target.classList.add("is-visible");
+                  obs.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+          );
+          els.forEach(function (el) {
+            obs.observe(el);
+          });
+        }
+        // Safety net: reveal everything after load in case the observer never fires.
+        function revealAll() {
+          document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+        }
+        if (document.readyState !== "loading") setup();
+        else document.addEventListener("DOMContentLoaded", setup);
+        document.addEventListener("astro:page-load", setup);
+        window.addEventListener("load", function () {
+          setTimeout(function () {
+            // Reveal anything still hidden and above the current scroll position.
+            document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
+              var r = el.getBoundingClientRect();
+              if (r.top < window.innerHeight) el.classList.add("is-visible");
+            });
+          }, 1200);
+        });
+      })();
+    </script>
 
     <style is:global>
       :root {

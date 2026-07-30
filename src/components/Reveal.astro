@@ -37,33 +37,5 @@ const Wrapper = as;
   }
 </style>
 
-<script>
-  function initReveal() {
-    const els = document.querySelectorAll<HTMLElement>(".reveal:not(.is-visible)");
-    if (!els.length) return;
-
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      els.forEach((el) => el.classList.add("is-visible"));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
-    );
-
-    els.forEach((el) => observer.observe(el));
-  }
-
-  initReveal();
-  // Re-run after client-side navigation (ViewTransitions).
-  document.addEventListener("astro:page-load", initReveal);
-</script>
+<!-- The reveal observer lives as an inline, self-contained script in BaseLayout
+     so it can never be broken by another bundled module failing to load. -->
