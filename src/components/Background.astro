@@ -1,0 +1,104 @@
+---
+// Fixed decorative background: subtle grid + drifting glow blobs.
+---
+
+<div class="bg-root" aria-hidden="true">
+  <div class="grid-layer"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="vignette"></div>
+</div>
+
+<style>
+  .bg-root {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+    pointer-events: none;
+    background: rgb(var(--color-fill));
+  }
+
+  .grid-layer {
+    position: absolute;
+    inset: -2px;
+    background-image:
+      linear-gradient(to right, rgba(var(--color), 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(var(--color), 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    opacity: 0.5;
+  }
+  .blob-1 {
+    width: 42vw;
+    height: 42vw;
+    max-width: 620px;
+    max-height: 620px;
+    top: -10%;
+    left: -6%;
+    background: rgba(var(--color), 0.35);
+    animation: drift1 22s ease-in-out infinite alternate;
+  }
+  .blob-2 {
+    width: 36vw;
+    height: 36vw;
+    max-width: 520px;
+    max-height: 520px;
+    top: 20%;
+    right: -8%;
+    background: rgba(var(--color-2), 0.28);
+    animation: drift2 26s ease-in-out infinite alternate;
+  }
+  .blob-3 {
+    width: 30vw;
+    height: 30vw;
+    max-width: 460px;
+    max-height: 460px;
+    bottom: -12%;
+    left: 40%;
+    background: rgba(var(--color), 0.22);
+    animation: drift3 30s ease-in-out infinite alternate;
+  }
+
+  .vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 120% 100% at 50% -10%, transparent 40%, rgba(var(--color-fill), 0.85) 100%);
+  }
+
+  @keyframes drift1 {
+    to {
+      transform: translate(12%, 10%) scale(1.1);
+    }
+  }
+  @keyframes drift2 {
+    to {
+      transform: translate(-10%, 14%) scale(1.15);
+    }
+  }
+  @keyframes drift3 {
+    to {
+      transform: translate(-8%, -10%) scale(1.05);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blob {
+      animation: none;
+    }
+  }
+
+  @media print {
+    .bg-root {
+      display: none;
+    }
+  }
+</style>

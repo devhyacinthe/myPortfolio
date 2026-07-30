@@ -1,0 +1,64 @@
+---
+import T from "@/components/T.astro";
+
+interface Props {
+  num?: string;
+  titleFr: string;
+  titleEn: string;
+  subFr?: string;
+  subEn?: string;
+  align?: "left" | "center";
+}
+
+const { num, titleFr, titleEn, subFr, subEn, align = "left" } = Astro.props;
+---
+
+<div class:list={["heading", align]}>
+  {num && <span class="num mono">{num}</span>}
+  <h2 class="title">
+    <T fr={titleFr} en={titleEn} />
+  </h2>
+  {
+    (subFr || subEn) && (
+      <p class="sub">
+        <T fr={subFr ?? ""} en={subEn ?? subFr ?? ""} />
+      </p>
+    )
+  }
+  <span class="rule"></span>
+</div>
+
+<style>
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .heading.center {
+    align-items: center;
+    text-align: center;
+  }
+  .num {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: rgb(var(--color));
+  }
+  .title {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    line-height: 1.1;
+  }
+  .sub {
+    max-width: 46ch;
+    font-size: 0.98rem;
+    margin: 0.15rem 0 0;
+  }
+  .rule {
+    width: 3.5rem;
+    height: 3px;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+    background: linear-gradient(90deg, rgb(var(--color)), rgb(var(--color-2)));
+  }
+</style>

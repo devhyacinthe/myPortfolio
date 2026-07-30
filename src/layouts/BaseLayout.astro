@@ -1,0 +1,232 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { basics } from "@cv";
+import Background from "@/components/Background.astro";
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import KeyboardManager from "@/components/KeyboardManager.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { name, label, summary, url, image } = basics;
+const { title = `${name} — ${label}`, description = summary } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="preload" as="image" href={image} />
+
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href={`${base}themes/themes.css`} />
+
+    {/* Anti-FOUC: apply theme + language before first paint, and re-apply after client-side nav. */}
+    <script is:inline>
+      (function () {
+        function applyTheme() {
+          var t = localStorage.getItem("theme") || "dark";
+          var sys = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          var mode = t === "system" ? sys : t;
+          var root = document.documentElement;
+          root.classList.remove("light", "dark");
+          root.classList.add(mode);
+        }
+        function applyLang() {
+          var l = localStorage.getItem("lang") || "fr";
+          document.documentElement.setAttribute("data-lang", l);
+          document.documentElement.setAttribute("lang", l);
+        }
+        applyTheme();
+        applyLang();
+        document.addEventListener("astro:after-swap", function () {
+          applyTheme();
+          applyLang();
+        });
+      })();
+    </script>
+
+    <ViewTransitions />
+  </head>
+
+  <body class="min-h-screen bg-skin-fill text-skin-base antialiased">
+    <Background />
+    <a href="#main" class="skip-link">Aller au contenu</a>
+    <Navbar />
+    <main id="main" class="mx-auto w-full max-w-6xl px-5 sm:px-8">
+      <slot />
+    </main>
+    <Footer />
+    <KeyboardManager />
+
+    <style is:global>
+      :root {
+        color-scheme: light dark;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.6;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      figure {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: rgb(var(--color-text-base));
+        text-wrap: balance;
+      }
+      p {
+        color: rgb(var(--color-text-muted));
+        text-wrap: pretty;
+      }
+
+      /* ── Bilingual toggle ── */
+      html[data-lang="fr"] [data-l="en"] {
+        display: none;
+      }
+      html[data-lang="en"] [data-l="fr"] {
+        display: none;
+      }
+
+      /* ── Reusable helpers ── */
+      .mono {
+        font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+      }
+      .text-gradient {
+        background: linear-gradient(120deg, rgb(var(--color)), rgb(var(--color-2)));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+      .glass {
+        background: rgba(var(--color-text-base), 0.03);
+        border: 1px solid rgba(var(--color-text-base), 0.08);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .dark .glass {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border-radius: 0.7rem;
+        padding: 0.7rem 1.35rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        cursor: pointer;
+      }
+      .btn-primary {
+        color: rgb(var(--color-text-inverted));
+        background: linear-gradient(120deg, rgb(var(--color)), rgb(var(--color-2)));
+        box-shadow: 0 8px 24px -8px rgba(var(--color), 0.6);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 32px -8px rgba(var(--color), 0.7);
+      }
+      .btn-ghost {
+        color: rgb(var(--color-text-base));
+        border: 1px solid rgba(var(--color-text-base), 0.15);
+      }
+      .btn-ghost:hover {
+        border-color: rgb(var(--color));
+        color: rgb(var(--color));
+        transform: translateY(-2px);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgb(var(--color));
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: 0;
+        z-index: 100;
+        padding: 0.6rem 1rem;
+        background: rgb(var(--color));
+        color: rgb(var(--color-text-inverted));
+        border-radius: 0 0 0.5rem 0;
+      }
+      .skip-link:focus {
+        left: 0;
+      }
+
+      ::selection {
+        background: rgba(var(--color), 0.3);
+      }
+
+      section {
+        scroll-margin-top: 6rem;
+      }
+    </style>
+  </body>
+</html>

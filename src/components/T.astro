@@ -1,0 +1,40 @@
+---
+// Bilingual text helper. Renders both languages inline; a global CSS rule
+// (in BaseLayout) hides the one that doesn't match html[data-lang].
+//
+// Usage:
+//   <T fr="Bonjour" en="Hello" />
+//   <T t={ui.nav.work} />              (t = { fr, en } from the dictionary)
+//   <T fr="…" en="…" as="span" class="font-bold" />
+interface Props {
+  fr?: string;
+  en?: string;
+  t?: { fr: string; en: string };
+  as?: keyof HTMLElementTagNameMap;
+  class?: string;
+}
+
+const { fr, en, t, as, class: className } = Astro.props;
+const frText = t?.fr ?? fr ?? "";
+// Fall back to the FR text if no EN translation was provided.
+const enText = t?.en ?? en ?? frText;
+const Wrapper = as;
+---
+
+{
+  Wrapper ? (
+    <Wrapper class={className}>
+      <span data-l="fr">{frText}</span>
+      <span data-l="en">{enText}</span>
+    </Wrapper>
+  ) : (
+    <>
+      <span data-l="fr" class={className}>
+        {frText}
+      </span>
+      <span data-l="en" class={className}>
+        {enText}
+      </span>
+    </>
+  )
+}

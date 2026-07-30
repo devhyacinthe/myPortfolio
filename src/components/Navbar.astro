@@ -1,0 +1,278 @@
+---
+import { basics } from "@cv";
+import { ui } from "@/i18n/ui";
+import T from "@/components/T.astro";
+
+const { name } = basics;
+const base = import.meta.env.BASE_URL;
+
+const links = [
+  { href: base, label: ui.nav.home, match: "" },
+  { href: `${base}work/`, label: ui.nav.work, match: "work" },
+  { href: `${base}about/`, label: ui.nav.about, match: "about" },
+  { href: `${base}blog/`, label: ui.nav.blog, match: "blog" },
+  { href: `${base}contact/`, label: ui.nav.contact, match: "contact" },
+];
+
+// Current top-level segment, relative to the base path.
+const path = Astro.url.pathname.replace(base, "").replace(/^\/|\/$/g, "");
+const current = path.split("/")[0] ?? "";
+
+const initials = name
+  .replace(/[^A-Za-zÀ-ÿ' ]/g, "")
+  .split(" ")
+  .filter(Boolean)
+  .slice(-2)
+  .map((w: string) => w[0]?.toUpperCase())
+  .join("");
+---
+
+<header class="nav-root">
+  <nav class="nav-inner glass">
+    <a href={base} class="brand" aria-label={name}>
+      <span class="brand-badge mono">{initials || "H"}</span>
+      <span class="brand-name">d'ALMEIDA<span class="text-gradient">.dev</span></span>
+    </a>
+
+    <ul class="nav-links">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} class:list={["nav-link", { active: current === link.match }]}>
+              <T t={link.label} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="nav-actions">
+      <button id="langToggle" class="pill-btn mono" aria-label={ui.a11y.toggleLang.fr} title="FR / EN">
+        <span data-lang-label>FR</span>
+      </button>
+      <button id="themeToggle" class="icon-btn" aria-label={ui.a11y.toggleTheme.fr} title="Theme">
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+      </button>
+      <button id="menuToggle" class="icon-btn menu-only" aria-label={ui.a11y.menu.fr} aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobileMenu" class="mobile-menu glass" hidden>
+    <ul>
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} class:list={["mobile-link", { active: current === link.match }]}>
+              <T t={link.label} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<style>
+  .nav-root {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 0.75rem 1rem;
+  }
+  .nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0.9rem 0.55rem 0.7rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.5);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+  }
+  .brand-badge {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.6rem;
+    font-size: 0.8rem;
+    color: rgb(var(--color-text-inverted));
+    background: linear-gradient(120deg, rgb(var(--color)), rgb(var(--color-2)));
+  }
+  .brand-name {
+    font-size: 0.95rem;
+    color: rgb(var(--color-text-base));
+  }
+
+  .nav-links {
+    display: none;
+    gap: 0.35rem;
+  }
+  .nav-link {
+    position: relative;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.6rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: rgb(var(--color-text-muted));
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+  .nav-link:hover {
+    color: rgb(var(--color-text-base));
+    background: rgba(var(--color-text-base), 0.05);
+  }
+  .nav-link.active {
+    color: rgb(var(--color));
+    background: rgba(var(--color), 0.1);
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .pill-btn {
+    padding: 0.35rem 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgb(var(--color-text-base));
+    border: 1px solid rgba(var(--color-text-base), 0.12);
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .pill-btn:hover {
+    border-color: rgb(var(--color));
+    color: rgb(var(--color));
+  }
+  .icon-btn {
+    display: grid;
+    place-items: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 0.6rem;
+    color: rgb(var(--color-text-base));
+    border: 1px solid rgba(var(--color-text-base), 0.12);
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .icon-btn:hover {
+    border-color: rgb(var(--color));
+    color: rgb(var(--color));
+  }
+
+  /* theme icon visibility */
+  .icon-btn .moon {
+    display: none;
+  }
+  :global(.dark) .icon-btn .sun {
+    display: none;
+  }
+  :global(.dark) .icon-btn .moon {
+    display: block;
+  }
+
+  .mobile-menu {
+    max-width: 72rem;
+    margin: 0.5rem auto 0;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    overflow: hidden;
+  }
+  .mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-link {
+    display: block;
+    padding: 0.8rem 1rem;
+    border-radius: 0.6rem;
+    font-weight: 500;
+    color: rgb(var(--color-text-muted));
+  }
+  .mobile-link.active,
+  .mobile-link:hover {
+    color: rgb(var(--color));
+    background: rgba(var(--color), 0.08);
+  }
+
+  @media (min-width: 768px) {
+    .nav-links {
+      display: flex;
+    }
+    .menu-only {
+      display: none;
+    }
+    .mobile-menu {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  function initNav() {
+    const root = document.documentElement;
+
+    // ── Theme (dark/light) ──
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle?.addEventListener("click", () => {
+      const isDark = root.classList.contains("dark");
+      const next = isDark ? "light" : "dark";
+      root.classList.remove("light", "dark");
+      root.classList.add(next);
+      localStorage.setItem("theme", next);
+    });
+
+    // ── Language (fr/en) ──
+    const langToggle = document.getElementById("langToggle");
+    const langLabel = document.querySelector("[data-lang-label]");
+    function reflectLang() {
+      const l = root.getAttribute("data-lang") || "fr";
+      if (langLabel) langLabel.textContent = l === "fr" ? "EN" : "FR";
+    }
+    reflectLang();
+    langToggle?.addEventListener("click", () => {
+      const l = root.getAttribute("data-lang") === "en" ? "fr" : "en";
+      root.setAttribute("data-lang", l);
+      root.setAttribute("lang", l);
+      localStorage.setItem("lang", l);
+      reflectLang();
+    });
+
+    // ── Mobile menu ──
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuToggle?.addEventListener("click", () => {
+      const open = mobileMenu?.hasAttribute("hidden");
+      if (open) {
+        mobileMenu?.removeAttribute("hidden");
+        menuToggle.setAttribute("aria-expanded", "true");
+      } else {
+        mobileMenu?.setAttribute("hidden", "");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    mobileMenu?.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => {
+        mobileMenu.setAttribute("hidden", "");
+        menuToggle?.setAttribute("aria-expanded", "false");
+      }),
+    );
+  }
+
+  initNav();
+  document.addEventListener("astro:page-load", initNav);
+</script>

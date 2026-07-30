@@ -1,0 +1,120 @@
+---
+import { skillGroups } from "@cv";
+import TechIcon from "@/components/TechIcon.astro";
+import Reveal from "@/components/Reveal.astro";
+import T from "@/components/T.astro";
+---
+
+<div class="tech-stack">
+  {
+    (skillGroups as any[]).map((g, i) => (
+      <Reveal delay={i * 90}>
+        <article class="ts-group">
+          <header class="ts-head">
+            <span class="ts-marker" aria-hidden="true" />
+            <h3 class="ts-title">
+              <T fr={g.category} en={g.category_en ?? g.category} />
+            </h3>
+            <span class="ts-count mono">{String(g.items.length).padStart(2, "0")}</span>
+          </header>
+          <ul class="ts-items">
+            {g.items.map((item: string) => (
+              <li class="ts-chip">
+                <TechIcon name={item} size={18} />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </Reveal>
+    ))
+  }
+</div>
+
+<style>
+  .tech-stack {
+    display: grid;
+    gap: 1.75rem;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  @media (min-width: 760px) {
+    .tech-stack {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .ts-group {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2rem 2.15rem;
+    border-radius: 1.15rem;
+    background: rgba(var(--color-text-base), 0.025);
+    border: 1px solid rgba(var(--color-text-base), 0.1);
+    box-shadow: 0 14px 34px -26px rgba(15, 23, 42, 0.4);
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  :global(.dark) .ts-group {
+    background: rgba(255, 255, 255, 0.028);
+    border-color: rgba(255, 255, 255, 0.09);
+  }
+  .ts-group:hover {
+    transform: translateY(-4px);
+    border-color: rgba(var(--color), 0.4);
+    box-shadow: 0 24px 46px -28px rgba(var(--color), 0.5);
+  }
+
+  .ts-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(var(--color-text-base), 0.08);
+  }
+  .ts-marker {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+    background: linear-gradient(120deg, rgb(var(--color)), rgb(var(--color-2)));
+  }
+  .ts-title {
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .ts-count {
+    margin-left: auto;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgb(var(--color));
+    opacity: 0.75;
+  }
+
+  .ts-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+  .ts-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.65rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1;
+    color: rgb(var(--color-text-base));
+    background: rgba(var(--color-text-base), 0.045);
+    border: 1px solid rgba(var(--color-text-base), 0.09);
+    transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  }
+  .ts-chip:hover {
+    transform: translateY(-2px);
+    border-color: rgba(var(--color), 0.5);
+    background: rgba(var(--color), 0.07);
+  }
+</style>

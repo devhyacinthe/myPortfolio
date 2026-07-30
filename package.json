@@ -15,7 +15,11 @@
     "astro": "4.3.2",
     "astro-font-picker": "^0.2.1",
     "hotkeypad": "0.1.0",
+    "katex": "^0.18.1",
     "prettier-plugin-tailwindcss": "^0.6.5",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
+    "simple-icons": "^16.27.1",
     "tailwindcss": "^3.4.4",
     "typescript": "5.3.3"
   },

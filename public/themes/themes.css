@@ -1,113 +1,128 @@
 @tailwind base;
 @layer base {
   :root {
-    --color-text-base: 0, 0, 0;
-    --color-text-muted: 120, 120, 120;
-    --color-text-inverted: 255, 255, 255;
-    --color-fill: 245, 245, 245;
-    --muted: 200, 200, 200;
-    --color: 249, 115, 22;
-    --color-button-accent: 249, 115, 22;
-    --color-button-accent-hover: 55, 55, 55;
-    --color-button-muted: 244, 239, 238;
+    /* ── Default (light) — Data-engineer emerald/teal ── */
+    --color-text-base: 15, 23, 42;
+    --color-text-muted: 71, 85, 105;
+    --color-text-inverted: 4, 24, 18;
+    --color-fill: 248, 250, 252;
+    --muted: 226, 232, 240;
+    --color: 5, 150, 105;
+    --color-2: 13, 148, 136;
+    --color-button-accent: 5, 150, 105;
+    --color-button-accent-hover: 4, 120, 87;
+    --color-button-muted: 241, 245, 249;
+
     [data-theme="blue"] {
       --color-text-base: 15, 23, 42;
       --color-text-muted: 100, 116, 139;
       --color-text-inverted: 240, 240, 240;
-      --color-fill: 203, 213, 225;
-      --muted: 148, 163, 184;
-      --color: 59, 130, 246;
-      --color-button-accent: 59, 130, 246;
-      --color-button-accent-hover: 0, 185, 255;
+      --color-fill: 240, 244, 250;
+      --muted: 210, 220, 235;
+      --color: 37, 99, 235;
+      --color-2: 14, 165, 233;
+      --color-button-accent: 37, 99, 235;
+      --color-button-accent-hover: 14, 165, 233;
       --color-button-muted: 226, 232, 240;
     }
     [data-theme="red"] {
       --color-text-base: 28, 25, 23;
       --color-text-muted: 100, 100, 100;
       --color-text-inverted: 245, 245, 245;
-      --color-fill: 231, 229, 228;
-      --muted: 220, 220, 220;
+      --color-fill: 250, 245, 245;
+      --muted: 230, 220, 220;
       --color: 239, 68, 68;
+      --color-2: 249, 115, 22;
       --color-button-accent: 239, 68, 68;
-      --color-button-accent-hover: 220, 50, 70;
-      --color-button-muted: 245, 245, 245;
+      --color-button-accent-hover: 249, 115, 22;
+      --color-button-muted: 245, 240, 240;
     }
     [data-theme="green"] {
-      --color-text-base: 40, 40, 40;
-      --color-text-muted: 110, 110, 110;
-      --color-text-inverted: 230, 230, 230;
-      --color-fill: 236, 252, 203;
-      --muted: 189, 220, 147;
-      --color: 101, 163, 13;
-      --color-button-accent: 101, 163, 13;
-      --color-button-accent-hover: 120, 220, 120;
-      --color-button-muted: 211, 235, 173;
+      --color-text-base: 20, 30, 20;
+      --color-text-muted: 90, 110, 90;
+      --color-text-inverted: 240, 245, 240;
+      --color-fill: 245, 250, 242;
+      --muted: 210, 228, 200;
+      --color: 22, 163, 74;
+      --color-2: 132, 204, 22;
+      --color-button-accent: 22, 163, 74;
+      --color-button-accent-hover: 132, 204, 22;
+      --color-button-muted: 226, 240, 220;
     }
     [data-theme="cyber"] {
       --color-text-base: 15, 15, 15;
-      --color-text-muted: 144, 135, 5;
+      --color-text-muted: 120, 110, 20;
       --color-text-inverted: 240, 240, 240;
-      --color-fill: 252, 255, 64;
-      --muted: 50, 50, 50;
-      --color: 235, 21, 43;
-      --color-button-accent: 235, 21, 43;
-      --color-button-accent-hover: 0, 185, 255;
-      --color-button-muted: 249, 239, 6;
+      --color-fill: 252, 255, 240;
+      --muted: 60, 60, 40;
+      --color: 217, 20, 90;
+      --color-2: 234, 179, 8;
+      --color-button-accent: 217, 20, 90;
+      --color-button-accent-hover: 234, 179, 8;
+      --color-button-muted: 246, 240, 210;
     }
   }
+
+  /* ── Dark (default = Dark Tech, anthracite + emerald) ── */
   .dark {
-    --color-text-base: 255, 255, 255;
-    --color-text-muted: 150, 150, 150;
-    --color-text-inverted: 255, 255, 255;
-    --color-fill: 18, 18, 18;
-    --muted: 36, 36, 36;
-    --color: 227, 77, 10;
-    --color-button-accent: 227, 77, 10;
-    --color-button-accent-hover: 231, 121, 43;
-    --color-button-muted: 26, 26, 26;
+    --color-text-base: 226, 232, 240;
+    --color-text-muted: 148, 163, 184;
+    --color-text-inverted: 3, 20, 15;
+    --color-fill: 15, 23, 42;
+    --muted: 30, 41, 59;
+    --color: 16, 185, 129;
+    --color-2: 45, 212, 191;
+    --color-button-accent: 16, 185, 129;
+    --color-button-accent-hover: 5, 150, 105;
+    --color-button-muted: 30, 41, 59;
+
     [data-theme="blue"] {
-      --color-text-base: 248, 250, 252;
-      --color-text-muted: 148, 163, 184;
+      --color-text-base: 226, 236, 250;
+      --color-text-muted: 138, 158, 190;
       --color-text-inverted: 240, 240, 240;
-      --color-fill: 2, 6, 23;
-      --muted: 51, 65, 85;
-      --color: 59, 130, 246;
-      --color-button-accent: 59, 130, 246;
-      --color-button-accent-hover: 0, 185, 255;
-      --color-button-muted: 30, 41, 59;
+      --color-fill: 5, 9, 20;
+      --muted: 25, 35, 55;
+      --color: 56, 132, 255;
+      --color-2: 34, 211, 238;
+      --color-button-accent: 56, 132, 255;
+      --color-button-accent-hover: 34, 211, 238;
+      --color-button-muted: 18, 26, 44;
     }
     [data-theme="red"] {
-      --color-text-base: 231, 229, 228;
-      --color-text-muted: 168, 162, 158;
+      --color-text-base: 245, 235, 233;
+      --color-text-muted: 178, 150, 148;
       --color-text-inverted: 245, 245, 245;
-      --color-fill: 28, 25, 23;
-      --muted: 45, 45, 45;
+      --color-fill: 20, 12, 12;
+      --muted: 45, 30, 30;
       --color: 248, 113, 113;
+      --color-2: 251, 146, 60;
       --color-button-accent: 248, 113, 113;
-      --color-button-accent-hover: 220, 50, 70;
-      --color-button-muted: 120, 113, 108; 
+      --color-button-accent-hover: 251, 146, 60;
+      --color-button-muted: 34, 20, 20;
     }
     [data-theme="green"] {
-      --color-text-base: 230, 230, 230;
-      --color-text-muted: 104, 124, 104;
-      --color-text-inverted: 230, 230, 230;
-      --color-fill: 10, 20, 10;
-      --muted: 54, 64, 54;
-      --color: 132, 204, 22;
-      --color-button-accent: 132, 204, 22;
-      --color-button-accent-hover: 120, 220, 120;
-      --color-button-muted: 34, 44, 34;
+      --color-text-base: 232, 244, 228;
+      --color-text-muted: 128, 158, 128;
+      --color-text-inverted: 235, 245, 230;
+      --color-fill: 8, 18, 10;
+      --muted: 28, 44, 30;
+      --color: 74, 222, 128;
+      --color-2: 163, 230, 53;
+      --color-button-accent: 74, 222, 128;
+      --color-button-accent-hover: 163, 230, 53;
+      --color-button-muted: 18, 30, 20;
     }
     [data-theme="cyber"] {
-      --color-text-base: 252, 255, 64;
-      --color-text-muted: 125, 125, 125;
+      --color-text-base: 236, 253, 245;
+      --color-text-muted: 120, 130, 130;
       --color-text-inverted: 240, 240, 240;
-      --color-fill: 15, 15, 15;
-      --muted: 50, 50, 50;
-      --color: 90, 237, 251;
-      --color-button-accent: 90, 237, 251;
-      --color-button-accent-hover: 0, 185, 255;
-      --color-button-muted: 25, 81, 86;
+      --color-fill: 10, 12, 14;
+      --muted: 30, 40, 42;
+      --color: 45, 227, 224;
+      --color-2: 244, 244, 92;
+      --color-button-accent: 45, 227, 224;
+      --color-button-accent-hover: 244, 244, 92;
+      --color-button-muted: 18, 28, 30;
     }
-}
+  }
 }

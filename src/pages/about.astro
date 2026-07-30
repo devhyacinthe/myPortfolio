@@ -1,0 +1,498 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import Reveal from "@/components/Reveal.astro";
+import T from "@/components/T.astro";
+import { ui } from "@/i18n/ui";
+import { basics, work, education, languages, interests } from "@cv";
+import TechStack from "@/components/TechStack.astro";
+
+import HTML from "@/icons/html.astro";
+import CSS from "@/icons/css.astro";
+import JavaScript from "@/icons/javascript.astro";
+import TypeScript from "@/icons/type.astro";
+import Node from "@/icons/node.astro";
+import MySQL from "@/icons/sql.astro";
+import Git from "@/icons/git.astro";
+import GitHub from "@/icons/GitHub.astro";
+import Tailwind from "@/icons/tailwind.astro";
+import Flutter from "@/icons/flutter.astro";
+import Gitlab from "@/icons/Gitlab.astro";
+
+const { summary, summary_en } = basics as any;
+const ICONS: Record<string, any> = {
+  HTML,
+  CSS,
+  JavaScript,
+  TypeScript,
+  Node,
+  MySQL,
+  Git,
+  GitHub,
+  Tailwind,
+  Flutter,
+  Gitlab,
+};
+
+const fmtYear = (d: string) => (d ? new Date(d).getFullYear() : "");
+---
+
+<BaseLayout title={`${basics.name} — About`}>
+  <section class="block">
+    <SectionHeading
+      num="•"
+      titleFr={ui.about.title.fr}
+      titleEn={ui.about.title.en}
+      subFr={ui.about.subtitle.fr}
+      subEn={ui.about.subtitle.en}
+    />
+
+    <Reveal>
+      <div class="bio glass">
+        <p class="bio-lead">
+          <T fr={summary} en={summary_en ?? summary} />
+        </p>
+      </div>
+    </Reveal>
+  </section>
+
+  {/* ── Experience ── */}
+  <section class="block">
+    <h2 class="sub-title"><span class="bar"></span><T t={ui.about.experience} /></h2>
+    <ol class="timeline">
+      {
+        work.map((job: any, i: number) => {
+          const end = job.endDate ? String(fmtYear(job.endDate)) : "";
+          return (
+            <Reveal as="li" delay={i * 80} class="tl-item">
+              <span class="tl-dot" aria-hidden="true" />
+              <div class="tl-date mono">
+                {fmtYear(job.startDate)} — {end || <T t={ui.about.present} />}
+              </div>
+              <div class="tl-body glass">
+                <h3 class="tl-role">
+                  <T fr={job.position} en={job.position_en ?? job.position} />
+                  <span class="at">@</span>
+                  {job.url ? (
+                    <a href={job.url} target="_blank" rel="noopener noreferrer" class="company">
+                      {job.name}
+                    </a>
+                  ) : (
+                    <span class="company">{job.name}</span>
+                  )}
+                </h3>
+                {(job.location || job.location_type) && (
+                  <p class="tl-meta">{job.location} {job.location && job.location_type ? "·" : ""} {job.location_type}</p>
+                )}
+                <p class="tl-summary">
+                  <T fr={job.summary} en={job.summary_en ?? job.summary} />
+                </p>
+
+                {(job.responsibilities || job.achievements) && (
+                  <details class="more">
+                    <summary>
+                      <span class="more-show"><T t={ui.about.showMore} /></span>
+                      <span class="more-hide"><T t={ui.about.showLess} /></span>
+                    </summary>
+                    <div class="more-body">
+                      {job.responsibilities && (
+                        <div>
+                          <h4><T t={ui.about.responsibilitiesLabel} /></h4>
+                          <ul class="bullets">
+                            {job.responsibilities.map((r: string, ri: number) => (
+                              <li>
+                                <T fr={r} en={job.responsibilities_en?.[ri] ?? r} />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      {job.achievements && (
+                        <div>
+                          <h4><T t={ui.about.achievementsLabel} /></h4>
+                          <ul class="bullets">
+                            {job.achievements.map((a: string, ai: number) => (
+                              <li>
+                                <T fr={a} en={job.achievements_en?.[ai] ?? a} />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </details>
+                )}
+
+                {job.skills && (
+                  <ul class="chips">
+                    {job.skills.map((s: string) => {
+                      const Icon = ICONS[s];
+                      return (
+                        <li class="chip">
+                          {Icon && <Icon />}
+                          <span>{s}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </div>
+            </Reveal>
+          );
+        })
+      }
+    </ol>
+  </section>
+
+  {/* ── Education ── */}
+  <section class="block">
+    <h2 class="sub-title"><span class="bar"></span><T t={ui.about.education} /></h2>
+    <div class="edu-grid">
+      {
+        education.map((e: any, i: number) => (
+          <Reveal delay={i * 70}>
+            <article class="edu glass">
+              <div class="edu-year mono">
+                {fmtYear(e.startDate)} — {e.endDate === "en cours" ? <T t={ui.about.present} /> : fmtYear(e.endDate)}
+              </div>
+              <h3 class="edu-inst">
+                {e.url ? (
+                  <a href={e.url} target="_blank" rel="noopener noreferrer">{e.institution}</a>
+                ) : (
+                  e.institution
+                )}
+              </h3>
+              <p class="edu-type">
+                <T fr={e.studyType} en={e.studyType_en ?? e.studyType} />
+              </p>
+              <p class="edu-area">
+                <T fr={e.area} en={e.area_en ?? e.area} />
+              </p>
+            </article>
+          </Reveal>
+        ))
+      }
+    </div>
+  </section>
+
+  {/* ── Skills ── */}
+  <section class="block">
+    <h2 class="sub-title"><span class="bar"></span><T t={ui.about.skills} /></h2>
+    <TechStack />
+  </section>
+
+  {/* ── Languages & Interests ── */}
+  <section class="block two-col">
+    <div>
+      <h2 class="sub-title"><span class="bar"></span><T t={ui.about.languages} /></h2>
+      <ul class="lang-list">
+        {
+          languages.map((l: any) => (
+            <li class="lang glass">
+              <span class="lang-name">
+                <T fr={l.language} en={l.language_en ?? l.language} />
+              </span>
+              <span class="lang-level mono">
+                <T fr={l.fluency} en={l.fluency_en ?? l.fluency} />
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <h2 class="sub-title"><span class="bar"></span><T t={ui.about.interests} /></h2>
+      <ul class="skills">
+        {
+          interests.flatMap((it: any) => it.keywords).map((k: string) => (
+            <li class="chip lg"><span>{k}</span></li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .block {
+    padding: 2.5rem 0;
+  }
+  .sub-title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.75rem;
+  }
+  .bar {
+    width: 4px;
+    height: 1.3em;
+    border-radius: 3px;
+    background: linear-gradient(180deg, rgb(var(--color)), rgb(var(--color-2)));
+  }
+
+  .bio {
+    padding: 1.75rem;
+    border-radius: 1rem;
+  }
+  .bio-lead {
+    font-size: 1.1rem;
+    color: rgb(var(--color-text-base));
+    margin: 0;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(var(--color), 0.6), rgba(var(--color-2), 0.1));
+  }
+  .tl-item {
+    position: relative;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -1.5rem;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgb(var(--color));
+    box-shadow: 0 0 0 4px rgba(var(--color), 0.15);
+    transform: translateX(-1px);
+  }
+  .tl-date {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgb(var(--color));
+    margin-bottom: 0.5rem;
+  }
+  .tl-body {
+    padding: 1.35rem;
+    border-radius: 0.9rem;
+  }
+  .tl-role {
+    font-size: 1.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: baseline;
+  }
+  .at {
+    color: rgb(var(--color-text-muted));
+  }
+  .company {
+    color: rgb(var(--color));
+  }
+  a.company:hover {
+    text-decoration: underline;
+  }
+  .tl-meta {
+    font-size: 0.8rem;
+    margin: 0.35rem 0 0;
+  }
+  .tl-summary {
+    margin: 0.6rem 0 0;
+    font-size: 0.92rem;
+  }
+
+  .more {
+    margin-top: 0.75rem;
+  }
+  .more summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgb(var(--color));
+    list-style: none;
+    user-select: none;
+  }
+  .more summary::-webkit-details-marker {
+    display: none;
+  }
+  .more[open] summary .more-show {
+    display: none;
+  }
+  .more:not([open]) summary .more-hide {
+    display: none;
+  }
+  .more-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.85rem;
+    animation: fade 0.3s ease;
+  }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .more-body h4 {
+    font-size: 0.85rem;
+    margin-bottom: 0.35rem;
+    color: rgb(var(--color-text-base));
+  }
+  .bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-left: 1.1rem;
+    list-style: disc;
+  }
+  .bullets li {
+    font-size: 0.88rem;
+    color: rgb(var(--color-text-muted));
+  }
+  .bullets li::marker {
+    color: rgb(var(--color));
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    color: rgb(var(--color));
+    background: rgba(var(--color), 0.1);
+    border: 1px solid rgba(var(--color), 0.2);
+  }
+  .chip.lg {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.85rem;
+    color: rgb(var(--color-text-base));
+    background: rgba(var(--color-text-base), 0.04);
+    border-color: rgba(var(--color-text-base), 0.1);
+  }
+  .chip :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+  .chip.lg :global(svg) {
+    width: 18px;
+    height: 18px;
+    color: rgb(var(--color));
+  }
+
+  .edu-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .edu-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .edu {
+    padding: 1.35rem;
+    border-radius: 0.9rem;
+    height: 100%;
+  }
+  .edu-year {
+    font-size: 0.75rem;
+    color: rgb(var(--color));
+    margin-bottom: 0.5rem;
+  }
+  .edu-inst {
+    font-size: 1.05rem;
+  }
+  .edu-inst a:hover {
+    color: rgb(var(--color));
+  }
+  .edu-type {
+    font-size: 0.88rem;
+    color: rgb(var(--color-text-base));
+    margin: 0.4rem 0 0.1rem;
+  }
+  .edu-area {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .skill-groups {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 700px) {
+    .skill-groups {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .skill-group {
+    padding: 1.35rem;
+    border-radius: 0.9rem;
+  }
+  .sg-title {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .sg-marker {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    background: linear-gradient(120deg, rgb(var(--color)), rgb(var(--color-2)));
+  }
+
+  .two-col {
+    display: grid;
+    gap: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .two-col {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .lang-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .lang {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.1rem;
+    border-radius: 0.7rem;
+  }
+  .lang-name {
+    font-weight: 600;
+    color: rgb(var(--color-text-base));
+  }
+  .lang-level {
+    font-size: 0.8rem;
+    color: rgb(var(--color));
+  }
+</style>

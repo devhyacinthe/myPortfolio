@@ -2,11 +2,15 @@
   "basics": {
     "name": "d'ALMEIDA Hyacinthe",
     "label": "Data engineer",
+    "label_en": "Data Engineer",
     "image": "/myPortfolio/me_avatar.jpg",
     "email": "devhyacinthepro@gmail.com",
     "phone": "+228 70738367",
     "url": "https://devhyacinthe.github.io/myPortfolio/",
-    "summary": "data engineer et Ingénieur logiciel passionné par le développement d'applications mobile, je suis actuellement à la recherche d'opportunités pour développer mes compétences dans un environnement professionnel.",
+    "summary": "À la croisée de l'ingénierie logicielle et de l'intelligence artificielle, j'aide à transformer des volumes massifs de données brutes en actifs exploitables et sécurisés. Fort d'une formation pointue en Big Data et IA, j'interviens sur l'ensemble du cycle de vie de la donnée : de la collecte et l'optimisation des flux jusqu'au déploiement de modèles en production. R rigoureux et axé sur les bonnes pratiques (Clean Code, CI/CD), je recherche des opportunités pour relever des défis techniques complexes.",
+    "summary_en": "At the intersection of software engineering and artificial intelligence, I help transform massive volumes of raw data into actionable, secure assets. With an advanced background in Big Data and AI, I work across the entire data lifecycle: from ingestion and pipeline optimization to deploying models into production. Rigorous and committed to best practices (Clean Code, CI/CD), I am seeking opportunities to solve complex technical challenges.",
+    "tagline": "Data Engineer | Big Data & AI Specialist | M2 Graduate",
+    "tagline_en": "Data Engineer | Big Data & AI Specialist | M2 Graduate",
     "theme": "blue",
     "location": {
       "address": "",
@@ -32,17 +36,22 @@
     {
       "name": "Cabinet INNOVE",
       "position": "Développeur mobile junior",
+      "position_en": "Junior Mobile Developer",
       "location_type": "A distance",
       "location": "Lomé, Togo",
       "url": "",
       "startDate": "2023-04-01",
       "endDate": "2023-10-01",
       "summary": "J'ai eu à travailler sur une application mobile de gestion de biens immobiliers.",
+      "summary_en": "I worked on a mobile application for real estate property management.",
       "highlights": [
         "Amélioration des performances de l'application en optimisant le code"
       ],
       "responsibilities": [
         "Collaboration avec des développeurs seniors pour concevoir et mettre en œuvre des applications mobiles en utilisant Flutter."
+      ],
+      "responsibilities_en": [
+        "Collaborated with senior developers to design and build mobile applications using Flutter."
       ],
       "skills": [
         "Flutter",
@@ -53,12 +62,14 @@
     {
       "name": "DacTechnologies",
       "position": "Développeur mobile et backend junior",
+      "position_en": "Junior Mobile & Backend Developer",
       "location_type": "Sur site",
       "location": "Lomé, Togo",
       "url": "https://www.dactechnologies.com/fr/",
       "startDate": "2024-04-02",
       "endDate": "2024-10-03",
       "summary": "J'ai eu à travailler sur le développement d'application mobile, ainsi que du backend principalement en NestJs.",
+      "summary_en": "I worked on mobile app development as well as backend services, mainly with NestJS.",
       "highlights": [
         "A contribué à plusieurs projets majeurs au sein de l'entreprise."
       ],
@@ -67,8 +78,16 @@
         "Développement et maintenance de services backend en utilisant NestJS et Django.",
         "Participation aux réunions quotidiennes et aux réunions de planification de sprint bi-hebdomadaires pour garantir l'alignement sur les objectifs du projet."
       ],
+      "responsibilities_en": [
+        "Developed several mobile applications.",
+        "Built and maintained backend services using NestJS and Django.",
+        "Took part in daily stand-ups and bi-weekly sprint planning to stay aligned with project goals."
+      ],
       "achievements": [
         "Création de plusieurs applications mobile au sein de l'entreprise."
+      ],
+      "achievements_en": [
+        "Delivered several mobile applications within the company."
       ],
       "skills": [
         "Flutter",
@@ -81,20 +100,28 @@
     {
       "name": "AlloServices",
       "position": "Responsable technique mobile",
+      "position_en": "Mobile Tech Lead",
       "location_type": "A distance",
       "location": "Lomé, Togo",
       "url": "https://www.alloservices.app/",
       "startDate": "2025-05-02",
       "endDate": "",
       "summary": "J'ai eu à travailler sur le développement d'application mobile",
+      "summary_en": "I led and worked on mobile application development.",
       "highlights": [
         "A contribué à plusieurs projets majeurs au sein de l'entreprise."
       ],
       "responsibilities": [
         "Développement de plusieurs applications mobiles"
       ],
+      "responsibilities_en": [
+        "Developed and shipped several mobile applications."
+      ],
       "achievements": [
         "Création de plusieurs applications mobile au sein de l'entreprise."
+      ],
+      "achievements_en": [
+        "Delivered several mobile applications within the company."
       ],
       "skills": [
         "Flutter",
@@ -107,7 +134,9 @@
       "institution": "Ecole Polytechnique de Lomé",
       "url": "https://www.facebook.com/p/Ecole-Polytechnique-de-Lom%C3%A9-UL-100087985756069/?locale=fr_FR",
       "area": "Ecole d'ingénieur",
+      "area_en": "Engineering School",
       "studyType": "Licence Professionnelle",
+      "studyType_en": "Professional Bachelor's Degree",
       "startDate": "2021-02-10",
       "endDate": "2025-04-30",
       "score": "3.9"
@@ -116,7 +145,9 @@
       "institution": "UTBM",
       "url": "https://www.utbm.fr/",
       "area": "Ecole d'ingénieur",
+      "area_en": "Engineering School",
       "studyType": "Master Professionnelle IA & Big Data",
+      "studyType_en": "Professional Master's in AI & Big Data",
       "startDate": "2025-10-28",
       "endDate": "en cours",
       "score": "3.9"
@@ -125,153 +156,54 @@
       "institution": "Notre dame de la trinité",
       "url": "",
       "area": "Collège-Lycée",
+      "area_en": "High School",
       "studyType": "BAC Série C4",
+      "studyType_en": "Scientific Baccalaureate (Series C4)",
       "startDate": "2013-09-18",
       "endDate": "2020-10-10",
       "score": "3.8"
     }
   ],
-  "certificates": [
-    
-  ],
-  "skills": [
+  "certificates": [],
+  "skillGroups": [
     {
-      "name": "Flutter",
-      "level": "Expert",
-      "keywords": [
-        "Mobile Development",
-        "Cross-Platform",
-        "Dart"
-      ]
+      "category": "Ingénierie & Big Data",
+      "category_en": "Engineering & Big Data",
+      "items": ["Python", "SQL", "Spark", "Kafka", "Airflow"]
     },
     {
-      "name": "Gitlab",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code"
-      ]
+      "category": "Bases de données",
+      "category_en": "Databases",
+      "items": ["PostgreSQL", "MongoDB", "Snowflake", "BigQuery"]
     },
     {
-      "name": "HTML",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Web Development",
-        "Frontend"
-      ]
+      "category": "Cloud & DevOps",
+      "category_en": "Cloud & DevOps",
+      "items": ["AWS", "GCP", "Azure", "Docker", "Git", "CI/CD"]
     },
     {
-      "name": "CSS",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Responsive Design"
-      ]
+      "category": "IA & ML",
+      "category_en": "AI & ML",
+      "items": ["Scikit-Learn", "PyTorch", "TensorFlow", "MLOps"]
     },
     {
-      "name": "JavaScript",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Backend",
-        "Fullstack"
-      ]
-    },
-    {
-      "name": "Tailwind",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "CSS Framework",
-        "Responsive Design"
-      ]
-    },
-    {
-      "name": "TypeScript",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Backend",
-        "JavaScript Superset"
-      ]
-    },
-    {
-      "name": "Node",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Web Development",
-        "Backend",
-        "JavaScript",
-        "Server"
-      ]
-    },
-    {
-      "name": "MySQL",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Databases",
-        "SQL",
-        "Data Storage",
-        "Backend"
-      ]
-    },
-    {
-      "name": "Git",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code"
-      ]
-    },
-    {
-      "name": "GitHub",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code",
-        "Git"
-      ]
-    },
-    {
-      "name": "NestJS",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Backend"
-      ]
-    },
-     {
-      "name": "Django Rest Framework",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Backend",
-        "Python"
-      ]
-    },
-    {
-      "name": "Python",
-      "level": "Intermédiaire",
-      "keywords": [
-        "Backend",
-        "Scripting",
-        "Data Science"
-      ]
+      "category": "Developpement Web & Mobile",
+      "category_en": "Web & Mobile Development",
+      "items": ["Python", "Nuxt", "NestJS", "Spring boot", "Django Rest framework", "Django", "Flutter", "Astro"]
     }
   ],
   "languages": [
     {
       "language": "Francais",
-      "fluency": "Locuteur natif"
+      "language_en": "French",
+      "fluency": "Locuteur natif",
+      "fluency_en": "Native speaker"
     },
     {
       "language": "Anglais",
-      "fluency": "Intermédiaire"
+      "language_en": "English",
+      "fluency": "Intermédiaire",
+      "fluency_en": "Intermediate"
     }
   ],
   "interests": [
@@ -282,26 +214,36 @@
         "Mobile Development",
         "Data science"
       ]
+    },
+    {
+      "name": "Sports",
+      "keywords": [
+        "Basketball",
+        "Football",
+        "Tennis"
+      ]
     }
   ],
-  "references": [
-   
-  ],
+  "references": [],
   "projects": [
     {
-      "name": "Portfolio",
+      "name": "AquaTogoManager",
       "isActive": true,
-      "description": "Un site Web de portfolio personnel pour présenter mes projets et mes compétences.",
+      "featured": true,
+      "description": "Une application pour gérer une boutique de ventes et de prestations de services dans le domaine de l'aquaculture.",
+      "description_en": "An app to manage a shop selling products and services in the aquaculture field.",
       "highlights": [
-        "Construit avec Astro"
+        "Construit avec Django"
       ],
-      "url": "https://devhyacinthe.github.io/myPortfolio/",
-      "github": "https://github.com/devhyacinthe/myPortfolio"
+      "url": "https://aquatogo.alloservices.app/",
+      "github": "https://github.com/devhyacinthe/aquaTogo_Manager"
     },
     {
       "name": "Youtube Clone",
       "isActive": true,
+      "featured": false,
       "description": "Une application web qui imite les fonctionnalités de YouTube, permettant aux utilisateurs de regarder des vidéos.",
+      "description_en": "A web app that mimics YouTube, letting users browse and watch videos.",
       "highlights": [
         "Construit avec ReactJS"
       ],
@@ -309,60 +251,95 @@
     },
     {
       "name": "DacPharma",
-      "isActive": false,
-      "description":"Une application mobile pour la recherche et la commande de médicaments en ligne.",
+      "isActive": true,
+      "featured": false,
+      "description": "Une application mobile pour la recherche et la commande de médicaments en ligne.",
+      "description_en": "A mobile app to search for and order medicines online.",
       "highlights": [
-        "Construit avec Flutter et NestJs"
+        "Construit avec Flutter et NestJs",
+        "Projet Privé"
       ],
       "url": "",
       "github": ""
     },
     {
       "name": "DacDelivery",
-      "isActive": false,
-      "description":"Une application mobile pour livrer des produits.",
+      "isActive": true,
+      "featured": false,
+      "description": "Une application mobile pour livrer des produits.",
+      "description_en": "A mobile app for product delivery.",
       "highlights": [
-        "Construit avec Flutter et Django Rest Framework"
+        "Construit avec Flutter et Django Rest Framework",
+        "Projet Privé"
       ],
       "url": "",
       "github": ""
     },
     {
       "name": "DacMarket",
-      "isActive": false,
-      "description":"Une application mobile pour vendre des produits en ligne.",
+      "isActive": true,
+      "featured": false,
+      "description": "Une application mobile pour vendre des produits en ligne.",
+      "description_en": "A mobile app to sell products online.",
       "highlights": [
-        "Construit avec Flutter et NestJs"
+        "Construit avec Flutter et NestJs",
+        "Projet Privé"
       ],
       "url": "",
       "github": ""
     },
     {
-      "name": "NBA App",
-      "isActive": false,
-      "description": "Une application mobile pour voir les résultats des match NBA.",
+      "name": "Hospital DataWarehouse",
+      "isActive": true,
+      "featured": true,
+      "description": "Il s'agit d'un pipeline de DataWarehouse pour des données artificielles d'un hopital",
+      "description_en": "This is a data warehouse pipeline for synthetic hospital data.",
       "highlights": [
-          "Construit avec Flutter"
+        "Metabase",
+        "SQL",
+        "Talend Open studio"
       ],
-      "url": ""
+      "url": "",
+      "github": "https://github.com/devhyacinthe/hospital-dwh"
+    },
+    {
+      "name": "Real estate regression model",
+      "isActive": true,
+      "featured": true,
+      "description": "Il s'agit d'un model de machine learning pour prédire le prix d'une maison en fonction de ses caractéristiques.",
+      "description_en": "This is a machine learning model for predicting the price of a house based on its characteristics.",
+      "highlights": [
+        "Machine learning",
+        "Scikit-Learn",
+        "Python"
+      ],
+      "url": "",
+      "github": "https://github.com/devhyacinthe/real_estate_regression"
+    },
+    {
+      "name": "Meeting room backend",
+      "isActive": true,
+      "featured": false,
+      "description": "Il s'agit d'une api REST qui permet la gestion de réservations de salles",
+      "description_en": "This is a REST API that enables the management of room reservations.",
+      "highlights": [
+        "Spring boot",
+        "Java"
+      ],
+      "url": "",
+      "github": "https://github.com/devhyacinthe/MeetingRoomBackend"
     },
     {
       "name": "Cleaner Contact",
-      "isActive": false,
-      "description": "Une application mobile pour néttoyer rapidement les contacts que vous voulez supprimer dans votre téléphone.",
+      "isActive": true,
+      "featured": false,
+      "description": "Une application mobile pour nettoyer rapidement les contacts que vous voulez supprimer dans votre téléphone.",
+      "description_en": "A mobile app to quickly clean up and delete unwanted contacts on your phone.",
       "highlights": [
-          "Construit avec Flutter"
+        "Construit avec Flutter"
       ],
-      "url": ""
-    },
-    {
-      "name": "AquaTogoManager",
-      "isActive": false,
-      "description": "Une application pour gerer une boutique de ventes et de prestations de services dans le domaine de l'aquaculture.",
-      "highlights": [
-          "Construit avec Django"
-      ],
-      "url": "https://aquatogo.alloservices.app/"
+      "url": "",
+      "github": "https://github.com/devhyacinthe/CleanerContact"
     }
   ]
 }

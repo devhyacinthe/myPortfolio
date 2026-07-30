@@ -1,0 +1,46 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { ui } from "@/i18n/ui";
+import { basics, projects } from "@cv";
+
+const rank = (p: any) => (p.featured ? 0 : p.isActive ? 1 : 2);
+const sorted = [...projects].sort((a: any, b: any) => rank(a) - rank(b));
+---
+
+<BaseLayout title={`${basics.name} — Work`}>
+  <section class="block">
+    <SectionHeading
+      num="•"
+      titleFr={ui.work.title.fr}
+      titleEn={ui.work.title.en}
+      subFr={ui.work.subtitle.fr}
+      subEn={ui.work.subtitle.en}
+    />
+    <div class="grid">
+      {sorted.map((p: any, i: number) => <ProjectCard project={p} delay={i * 60} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .block {
+    padding: 2.5rem 0;
+  }
+  .grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 700px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1000px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

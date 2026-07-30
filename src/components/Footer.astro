@@ -1,0 +1,129 @@
+---
+import { basics } from "@cv";
+import { ui } from "@/i18n/ui";
+import T from "@/components/T.astro";
+import GitHub from "@/icons/GitHub.astro";
+import LinkedIn from "@/icons/LinkedIn.astro";
+import X from "@/icons/X.astro";
+import Mail from "@/icons/Mail.astro";
+import type { SocialIcon } from "@/types";
+
+const { name, email, profiles } = basics;
+const base = import.meta.env.BASE_URL;
+const year = new Date().getFullYear();
+
+const SOCIAL_ICONS: SocialIcon = { GitHub, LinkedIn, X };
+---
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href={base} class="footer-name">d'ALMEIDA<span class="text-gradient">.dev</span></a>
+      <p class="footer-tag">
+        <T t={ui.hero.available} />
+        <span class="dot"></span>
+      </p>
+    </div>
+
+    <div class="footer-social">
+      {
+        email && (
+          <a href={`mailto:${email}`} class="soc" title={email} aria-label="Email">
+            <Mail />
+          </a>
+        )
+      }
+      {
+        profiles.map(({ network, url }) => {
+          const Icon = SOCIAL_ICONS[network];
+          return Icon ? (
+            <a href={url} class="soc" target="_blank" rel="noopener noreferrer" title={network} aria-label={network}>
+              <Icon />
+            </a>
+          ) : null;
+        })
+      }
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© {year} {name} · <T t={ui.footer.rights} /></span>
+    <span class="footer-built mono">
+      <T t={ui.footer.builtWith} /> · <kbd>Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    max-width: 72rem;
+    margin: 6rem auto 0;
+    padding: 2rem 1.25rem 2.5rem;
+    border-top: 1px solid rgba(var(--color-text-base), 0.08);
+  }
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .footer-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: rgb(var(--color-text-base));
+  }
+  .footer-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.25rem 0 0;
+    font-size: 0.8rem;
+  }
+  .dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+  }
+  .footer-social {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .soc {
+    display: grid;
+    place-items: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 0.6rem;
+    color: rgb(var(--color-text-muted));
+    border: 1px solid rgba(var(--color-text-base), 0.1);
+    transition: all 0.2s ease;
+  }
+  .soc:hover {
+    color: rgb(var(--color));
+    border-color: rgb(var(--color));
+    transform: translateY(-2px);
+  }
+  .soc :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+    font-size: 0.75rem;
+    color: rgb(var(--color-text-muted));
+  }
+  kbd {
+    padding: 1px 5px;
+    border-radius: 4px;
+    background: rgba(var(--color-text-base), 0.08);
+    font-size: 0.7rem;
+  }
+</style>
