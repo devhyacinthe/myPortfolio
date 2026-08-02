@@ -330,6 +330,18 @@
       "github": "https://github.com/devhyacinthe/MeetingRoomBackend"
     },
     {
+      "name": "CV builder",
+      "isActive": true,
+      "featured": false,
+      "description": "Il s'agit d'une application pour construire un cv respectant les normes ATS",
+      "description_en": "This is an application for creating a CV that complies with ATS standards.",
+      "highlights": [
+        "NuxtJs"
+      ],
+      "url": "https://devhyacinthe.github.io/cv-builder/",
+      "github": "https://github.com/devhyacinthe/cv-builder"
+    },
+    {
       "name": "Cleaner Contact",
       "isActive": true,
       "featured": false,
