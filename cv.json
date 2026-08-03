@@ -342,6 +342,19 @@
       "github": "https://github.com/devhyacinthe/cv-builder"
     },
     {
+      "name": "Anomaly detection in banking transactions with kmeans",
+      "isActive": true,
+      "featured": true,
+      "description": "Il s'agit de créer un modele kmeans pour détecter des anomalies dans des transactions bancaires",
+      "description_en": "The goal is to create a K-means model to detect anomalies in banking transactions.",
+      "highlights": [
+        "Scikit-Learn",
+        "Python"
+      ],
+      "url": "",
+      "github": "https://github.com/devhyacinthe/Anomaly-detection-in-banking-transactions-with-kmeans"
+    },
+    {
       "name": "Cleaner Contact",
       "isActive": true,
       "featured": false,

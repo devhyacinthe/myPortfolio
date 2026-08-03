@@ -13,6 +13,11 @@ const blog = defineCollection({
     tags: z.array(z.string()).default([]),
     author: z.string().default("d'ALMEIDA Hyacinthe"),
     draft: z.boolean().default(false),
+    // Optional companion file (path relative to `public/`), offered as a download.
+    pdf: z.string().optional(),
+    pdfLabel: z.string().optional(),
+    pdfLabel_en: z.string().optional(),
+    pdfMeta: z.string().optional(),
   }),
 });
 

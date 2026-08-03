@@ -92,6 +92,12 @@ export const ui = {
       en: "No posts yet. Check back soon!",
     },
     updatedOn: { fr: "Mis à jour le", en: "Updated on" },
+    downloadPdf: { fr: "Télécharger le PDF", en: "Download the PDF" },
+    downloadTitle: { fr: "Le rapport complet", en: "The full report" },
+    downloadDesc: {
+      fr: "Version longue en PDF : méthodologie détaillée, figures et code source intégral.",
+      en: "Long-form PDF: detailed methodology, figures and the complete source code.",
+    },
     soon: { fr: "Bientôt disponible", en: "Coming soon" },
     desc: {
       fr: "J'écris bientôt sur le développement mobile, le data engineering et l'IA. Reviens vite !",
