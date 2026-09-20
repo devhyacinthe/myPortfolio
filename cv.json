@@ -355,6 +355,20 @@
       "github": "https://github.com/devhyacinthe/Anomaly-detection-in-banking-transactions-with-kmeans"
     },
     {
+      "name": "Traduction multilingue Francais-EWE-Anglais",
+      "isActive": true,
+      "featured": true,
+      "description": "Il s'agit de créer une application pour traduire le francais, l'anglais et l'ewe en utilisant un modele de machine learning",
+      "description_en": "The goal is to create an application to translate French, English, and Ewe using a machine learning model.",
+      "highlights": [
+        "Scikit-Learn",
+        "Python",
+        "NLP"
+      ],
+      "url": "https://ewe-multilingual-translator-fronten.vercel.app/",
+      "github": "https://github.com/Harlequelrah/multilingual_translator_data"
+    },
+    {
       "name": "Cleaner Contact",
       "isActive": true,
       "featured": false,
