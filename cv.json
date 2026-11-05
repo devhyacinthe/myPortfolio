@@ -379,6 +379,30 @@
       ],
       "url": "",
       "github": "https://github.com/devhyacinthe/CleanerContact"
+    },
+    {
+      "name": "LearningStuff",
+      "isActive": true,
+      "featured": false,
+      "description": " Application web pour apprendre ces cours et ses leçons en ligne.",
+      "description_en": "A web application to learn your courses and lessons online.",
+      "highlights": [
+        "Construit avec Django"
+      ],
+      "url": "https://learningstuff.hyacinthe-dalmeida.com/",
+      "github": "https://github.com/devhyacinthe/learning_stuff"
+    },
+    {
+      "name": "LifeTrack",
+      "isActive": true,
+      "featured": false,
+      "description": " Application mobile personnelle de gestion financière et de suivi sportif",
+      "description_en": "A mobile app to manage personal finance and sport.",
+      "highlights": [
+        "Construit avec Expo, React Native et Django Rest Framework"
+      ],
+      "url": "",
+      "github": "https://github.com/devhyacinthe/lifetrack"
     }
   ]
 }
