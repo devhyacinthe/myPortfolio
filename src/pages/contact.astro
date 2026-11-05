@@ -12,6 +12,8 @@ import GitHub from "@/icons/GitHub.astro";
 
 const { phone, profiles } = basics;
 const CONTACT_INBOX = "portfolio@hyacinthe-dalmeida.com";
+// Public Web3Forms access key tied to CONTACT_INBOX (get one at https://web3forms.com).
+const WEB3FORMS_KEY = "c1f6ebbc-4e50-41f2-8e97-caa6628c867a";
 const linkedin = profiles.find((p: any) => p.network === "LinkedIn")?.url ?? "";
 const github = profiles.find((p: any) => p.network === "GitHub")?.url ?? "";
 ---
@@ -29,8 +31,8 @@ const github = profiles.find((p: any) => p.network === "GitHub")?.url ?? "";
     <div class="contact-grid">
       {/* Form */}
       <Reveal>
-        <form id="contactForm" class="form glass" data-endpoint={`https://formsubmit.co/ajax/${CONTACT_INBOX}`} novalidate>
-          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <form id="contactForm" class="form glass" data-key={WEB3FORMS_KEY} novalidate>
+          <input type="text" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label class="field">
             <span><T t={ui.contact.name} /></span>
             <input type="text" name="name" required data-ph-fr={ui.contact.namePlaceholder.fr} data-ph-en={ui.contact.namePlaceholder.en} />
@@ -287,7 +289,7 @@ const github = profiles.find((p: any) => p.network === "GitHub")?.url ?? "";
     applyPlaceholders();
     document.getElementById("langToggle")?.addEventListener("click", () => setTimeout(applyPlaceholders, 0));
 
-    // Send directly via FormSubmit (no mail client needed)
+    // Send directly via Web3Forms (no mail client needed)
     const form = document.getElementById("contactForm") as HTMLFormElement | null;
     if (form && !form.dataset.bound) {
       form.dataset.bound = "1";
@@ -295,23 +297,22 @@ const github = profiles.find((p: any) => p.network === "GitHub")?.url ?? "";
         e.preventDefault();
         if (!form.reportValidity()) return;
         const data = new FormData(form);
-        if (String(data.get("_honey") ?? "")) return; // bot
+        if (String(data.get("botcheck") ?? "")) return; // bot
         const button = form.querySelector<HTMLButtonElement>("button[type=submit]");
         const subject = String(data.get("subject") ?? "");
         form.dataset.state = "sending";
         if (button) button.disabled = true;
         try {
-          const res = await fetch(form.dataset.endpoint ?? "", {
+          const res = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
             headers: { "Content-Type": "application/json", Accept: "application/json" },
             body: JSON.stringify({
+              access_key: form.dataset.key,
               name: data.get("name"),
               email: data.get("email"),
               message: data.get("message"),
-              _subject: `[Portfolio] ${subject}`,
-              _replyto: data.get("email"),
-              _template: "table",
-              _captcha: "false",
+              subject: `[Portfolio] ${subject}`,
+              from_name: "Portfolio",
             }),
           });
           const json = await res.json().catch(() => ({}));
